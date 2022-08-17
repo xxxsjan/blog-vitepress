@@ -1,0 +1,18 @@
+{
+  "name": "web-note-vitepress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vitepress dev docs --port 3333 --host",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.5"
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.11",
+    "sass": "^1.54.4"
+  }
+}
