@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as n,b as o}from"./app.cb18442a.js";const f=JSON.parse('{"title":"webnote","description":"","frontmatter":{},"headers":[],"relativePath":"webnote/index.md"}'),a={name:"webnote/index.md"},s=o("h1",{id:"webnote",tabindex:"-1"},"webnote",-1),r=[s];function c(d,i,_,p,l,m){return n(),t("div",null,r)}var x=e(a,[["render",c]]);export{f as __pageData,x as default};
