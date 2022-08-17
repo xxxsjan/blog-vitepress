@@ -1,6 +1,8 @@
 import sidebar from './sidebar';
+import pkg from '../../package.json';
+console.log(pkg.name);
 module.exports = {
-  base: '/',
+  base: '/web-note-vitepress/',
   lang: 'zh-cn', // build时才会放到html标签里
   title: 'VitePress',
   description: 'Just playing around.', // 站点的描述。 这将作为<meta>标记渲染在页面HTML中。
