@@ -1,7 +1,9 @@
 import sidebar from './sidebar';
 import pkg from '../../package.json';
-console.log(pkg.name);
+import { useLocalDoc } from './custom';
+console.log(pkg.name, sidebar);
 // https://vitepress.vuejs.org/config/app-configs
+
 module.exports = {
   appearance: true, // Whether to enable dark mode or not. Default: true
   base: '/web-note-vitepress/', // 会影响部署的读取路径
@@ -13,7 +15,8 @@ module.exports = {
   title: 'VitePress',
   description: 'Just playing around.', // 站点的描述。 这将作为<meta>标记渲染在页面HTML中。
   lastUpdated: true,
-  // srcDir:'../../web-note/docs',
+  //The directory where your markdown pages are stored, relative to project root.
+  srcDir: useLocalDoc ? './' : '../../web-note/docs', // Default: .
   markdown: {
     lineNumbers: false,
     // options for markdown-it-anchor
@@ -44,10 +47,22 @@ module.exports = {
     // sidebarDepth: 2,
     sidebar: {
       ...sidebar,
+      '/guide/': [
+        {
+          text: 'Guide',
+          items: [
+            { text: 'Index', link: '/guide/' }, // /guide/index.md
+            { text: 'One', link: '/guide/one' }, // /guide/one.md
+            { text: 'Two', link: '/guide/two' }, // /guide/two.md
+          ],
+        },
+      ],
     },
     nav: [
+      // / 结尾找 index.md 名字结尾找 名字.md
       { text: '首页', link: '/' },
       { text: '笔记', link: '/webnote/' },
+      { text: 'Guide', link: '/guide/' },
     ],
   },
 };

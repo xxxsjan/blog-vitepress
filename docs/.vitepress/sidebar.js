@@ -1,9 +1,9 @@
 const fg = require('fast-glob');
 const path = require('path');
+import { useLocalDoc } from './custom';
 
-const docsPath = process.cwd(); // 用自己的docs
-// const docsPath = path.resolve(process.cwd(), '../web-note'); // 用vuepress的docs
-
+const docsPath = useLocalDoc ? process.cwd() : path.resolve(process.cwd(), '../web-note');
+console.log(docsPath);
 // console.log(
 //   fg.sync('**', {
 //     onlyFiles: false,
@@ -12,21 +12,21 @@ const docsPath = process.cwd(); // 用自己的docs
 //   })
 // );
 
-function getPath(cwd) {
-  return path.resolve(docsPath, cwd);
+function getPath(p) {
+  return path.join(docsPath, './docs', p);
 }
-function getDirs(cwd) {
+function getDirs(p) {
   return fg.sync('**', {
     onlyFiles: false,
-    cwd: getPath(cwd),
+    cwd: getPath(p),
     deep: 1,
     ignore: ['*.md'],
   });
 }
-function getMdFiles(cwd) {
+function getMdFiles(p) {
   return fg.sync('**', {
     onlyFiles: true,
-    cwd: getPath(cwd),
+    cwd: getPath(p),
     deep: 1,
     ignore: ['index.md'],
   });
@@ -64,9 +64,14 @@ function genSideBar(dirPath) {
   ];
   return res;
 }
-const webnote = genSideBar('docs/webnote');
+const webnote = genSideBar('webnote');
 console.log(JSON.stringify(webnote));
 
 export default {
-  '/webnote/': webnote,
+  '/webnote/': [
+    {
+      text: 'webnote',
+      items: webnote,
+    },
+  ],
 };
