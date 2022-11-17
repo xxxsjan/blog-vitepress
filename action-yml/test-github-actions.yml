@@ -23,12 +23,12 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # 指定node版本 
+          node-version: 16 # 指定node版本
       # 打包代码生成环境
       - name: Build
-        run: | 
+        run: |
           npm i  
-          npm run docs:build 
+          npm run docs:build
       # 这里引用了别人写好的发布库，具体参数信息可以查阅上面的链接
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.0.0

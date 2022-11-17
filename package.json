@@ -1,9 +1,9 @@
 {
-  "name": "web-note-vitepress",
+  "name": "blog-vitepress",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://github.com/xxxsjan/web-note-vitepress",
+  "homepage": "https://github.com/xxxsjan/blog-vitepress",
   "scripts": {
     "docs:dev": "vitepress dev docs --port 3333 --host",
     "docs:build": "vitepress build docs",
