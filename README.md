@@ -1,3 +1,5 @@
-# web-note-vitepress
+# blog-vitepress
 
-web-note-vitepress
+## 技术栈
+
+vitepress
