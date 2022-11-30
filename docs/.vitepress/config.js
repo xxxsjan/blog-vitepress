@@ -8,7 +8,7 @@ const baseMap = {
   vercel: '/',
 };
 
-console.log(baseMap[process.env.BUILD_ENV || process.env.NODE_ENV || 'default']);
+console.log(baseMap[process.env.BUILD_ENV || process.env.NODE_ENV]);
 
 console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
 console.log('process.env.BUILD_ENV: ', process.env.BUILD_ENV);
@@ -17,7 +17,7 @@ console.log('process.env.BUILD_ENV: ', process.env.BUILD_ENV);
 
 module.exports = {
   appearance: true, // Whether to enable dark mode or not. Default: true
-  base: baseMap[process.env.NODE_ENV || 'production'] || '/', // 会影响部署的读取路径
+  base: baseMap[process.env.BUILD_ENV || process.env.NODE_ENV] || '/', // 会影响部署的读取路径
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     // would render: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
