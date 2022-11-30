@@ -8,7 +8,7 @@
     "docs:dev": "vitepress dev docs --port 3333 --host",
     "docs:build": "vitepress build docs",
     "build:github": "cross-env NODE_ENV=github vitepress build docs",
-    "build:vercel": "cross-env NODE_ENV=vercel vitepress build docs",
+    "build:vercel": "cross-env BUILD_ENV=vercel vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {

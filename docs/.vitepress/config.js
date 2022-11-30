@@ -7,8 +7,11 @@ const baseMap = {
   github: '/blog-vitepress/',
   vercel: '/',
 };
-console.log(baseMap[process.env.NODE_ENV || 'default']);
+
+console.log(baseMap[process.env.BUILD_ENV || process.env.NODE_ENV || 'default']);
+
 console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
+console.log('process.env.BUILD_ENV: ', process.env.BUILD_ENV);
 
 // https://vitepress.vuejs.org/config/app-configs
 
