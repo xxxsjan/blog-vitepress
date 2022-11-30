@@ -2,11 +2,16 @@ import sidebar from './sidebar';
 import pkg from '../../package.json';
 import { useLocalDoc } from './custom';
 console.log(pkg.name, sidebar);
+const baseMap = {
+  default: '/blog-vitepress/',
+  github: '/blog-vitepress/',
+  vercel: '/',
+};
 // https://vitepress.vuejs.org/config/app-configs
-
+console.log(process.env.NODE_ENV);
 module.exports = {
   appearance: true, // Whether to enable dark mode or not. Default: true
-  base: '/web-note-vitepress/', // 会影响部署的读取路径
+  base: baseMap[process.env.NODE_ENV || 'default'], // 会影响部署的读取路径
   head: [
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     // would render: <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
