@@ -8,6 +8,7 @@ const baseMap = {
   vercel: '/',
 };
 console.log(baseMap[process.env.NODE_ENV || 'default']);
+console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
 
 // https://vitepress.vuejs.org/config/app-configs
 
